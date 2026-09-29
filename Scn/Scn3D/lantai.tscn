@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bgcdxgwuuvwa6"]
+
+[ext_resource type="Texture2D" uid="uid://bclisqqcvbdds" path="res://Model/Lantai/Lantai_hinoki_planks_diff_1k.jpg" id="1_528eg"]
+[ext_resource type="Texture2D" uid="uid://cvshw05y3pywy" path="res://Model/Lantai/Lantai_hinoki_planks_rough_1k.png" id="2_j6asf"]
+[ext_resource type="Texture2D" uid="uid://do60sgkt6ei6t" path="res://Model/Lantai/Lantai_hinoki_planks_nor_gl_1k.png" id="3_fs06f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtkkt"]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_528eg")
+metallic_texture = ExtResource("2_j6asf")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_j6asf")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_fs06f")
+uv1_scale = Vector3(25, 25, 1)
+uv1_offset = Vector3(0, -24, 0)
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xrbxn"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0ojs5"]
+resource_name = "Lantai_Plane"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_xtkkt"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xrbxn")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_528eg"]
+points = PackedVector3Array(-0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5)
+
+[node name="Lantai" type="Node3D" unique_id=1544733083]
+
+[node name="Lantai" type="MeshInstance3D" parent="." unique_id=1268356550]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("ArrayMesh_0ojs5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Lantai" unique_id=1278822540]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lantai/StaticBody3D" unique_id=604247165]
+shape = SubResource("ConvexPolygonShape3D_528eg")

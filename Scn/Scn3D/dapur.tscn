@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://yea3g4rw7rub"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ibbs"]
+size = Vector3(1, 1, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i5soe"]
+size = Vector3(1, 1, 2)
+
+[node name="Dapur" type="Node3D" unique_id=1730304772]
+
+[node name="Kompor" type="StaticBody3D" parent="." unique_id=191700340]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kompor" unique_id=1991212128]
+shape = SubResource("BoxShape3D_6ibbs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Kompor" unique_id=684295723]
+mesh = SubResource("BoxMesh_i5soe")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1245539300]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.41, 0)
+spot_range = 10.132
+spot_angle = 34.81
+spot_angle_attenuation = 0.37892917

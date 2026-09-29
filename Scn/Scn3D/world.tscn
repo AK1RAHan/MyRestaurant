@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c347hoke67wyb"]
+
+[ext_resource type="PackedScene" uid="uid://bgcdxgwuuvwa6" path="res://Scn/Scn3D/lantai.tscn" id="1_gb6kk"]
+[ext_resource type="PackedScene" uid="uid://yea3g4rw7rub" path="res://Scn/Scn3D/dapur.tscn" id="2_ffurj"]
+
+[sub_resource type="Environment" id="Environment_6ibbs"]
+
+[node name="World" type="Node3D" unique_id=1797204532]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1622891843]
+environment = SubResource("Environment_6ibbs")
+
+[node name="Lantai" parent="." unique_id=1544733083 instance=ExtResource("1_gb6kk")]
+
+[node name="Dapur" parent="." unique_id=1730304772 instance=ExtResource("2_ffurj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, 0)
