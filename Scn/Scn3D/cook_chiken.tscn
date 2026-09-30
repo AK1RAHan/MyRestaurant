@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d3eu7m2n747l5"]
+
+[ext_resource type="PackedScene" uid="uid://b2xapc7wiicpt" path="res://Model/ayam Matang/dagingMatang.glb" id="1_tbd5q"]
+
+[node name="CookChiken" type="Node3D" unique_id=1707105292]
+
+[node name="dagingMatang" parent="." unique_id=1745914682 instance=ExtResource("1_tbd5q")]

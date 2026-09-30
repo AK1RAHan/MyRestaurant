@@ -5,12 +5,13 @@ extends CharacterBody3D
 var urutan = 0
 func _physics_process(delta: float) -> void:
 	var tampilkanDialog = Player.tampilkanDialog
-	var IndexDialog = [" ","Halo Cuy", "Nama gw Ucok!", "Salken Cuhh", ""]
+	var IndexDialog = [" ","Permisi saya ingin memesan!","Saya ingin memsan sebuah ayam goreng",]
 	if tampilkanDialog:
 		if Input.is_action_just_pressed("ui_accept"):
-			urutan += 1
-			DialogText.mesh.text = IndexDialog[urutan]
-	if urutan >=4:
-		urutan =0
-			
-	pass
+			if urutan < IndexDialog.size():
+				DialogText.mesh.text = IndexDialog[urutan]
+				urutan += 1
+			else:
+				tampilkanDialog = false
+				urutan = 0
+				DialogText.mesh.text = ""

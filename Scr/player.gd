@@ -8,7 +8,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var tampilkanIcon
 var tampilkanDialog
 
-@onready var IndexOfRay = [$Head/RayCast3D, $Head/RayCast3D2]
+@onready var IndexOfRay = [$Head/RayCast3D]
 @onready var RayScn = $Head/RayCast3D
 @onready var labelScn = $Control/Label
 @onready var head: Node3D = $Head
@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 				tampilkanIcon = true
 				labelScn.show()
 		else:
+			tampilkanDialog = false
 			tampilkanIcon = false
 			labelScn.hide()
 	

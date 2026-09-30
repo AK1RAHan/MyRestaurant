@@ -12,6 +12,7 @@ albedo_color = Color(1, 0.5529412, 0.3019608, 1)
 [sub_resource type="TextMesh" id="TextMesh_hg0jx"]
 text = "Aku sebenarnya adalah Femboy"
 font_size = 9
+depth = 0.0
 
 [node name="Npc" type="CharacterBody3D" unique_id=232047939]
 script = ExtResource("1_1p4sa")
