@@ -5,8 +5,12 @@ const JUMP_VELOCITY = 4.5
 const MOUSE_SENSITIVITY = 0.003  # Sensitivitas gerakan mouse
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var tampilkanIcon
+var tampilkanDialog
 
+@onready var IndexOfRay = [$Head/RayCast3D, $Head/RayCast3D2]
 @onready var RayScn = $Head/RayCast3D
+@onready var labelScn = $Control/Label
 @onready var head: Node3D = $Head
 
 func _ready() -> void:
@@ -34,20 +38,23 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if RayScn.is_colliding():
-		var Collider = RayScn.get_collider()
-		if Collider:
-			print(Collider.name)
-	else:
-		print("aku gak nge Colliding")
+	for Ray in IndexOfRay:
+		if Ray.is_colliding():
+			var Collider = Ray.get_collider()
+			if Collider and Collider.name == "Npc":
+				labelScn.show()
+				tampilkanDialog = true
+				pass
+			elif Collider and Collider.name == "Kompor":
+				tampilkanIcon = true
+				labelScn.show()
+		else:
+			tampilkanIcon = false
+			labelScn.hide()
 	
 	# Gravitasi
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
-	# Loncat
-	if Input.is_action_just_pressed("Loncat") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
 	# Input Arah WASD / Panah
 	var input_dir := Input.get_vector("Kiri", "Kanan", "Maju", "Mundur")
