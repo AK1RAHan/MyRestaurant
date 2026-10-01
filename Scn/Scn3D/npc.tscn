@@ -14,6 +14,9 @@ text = "Aku sebenarnya adalah Femboy"
 font_size = 9
 depth = 0.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2h8lc"]
+albedo_color = Color(18.892, 18.892, 18.892, 1)
+
 [node name="Npc" type="CharacterBody3D" unique_id=232047939]
 script = ExtResource("1_1p4sa")
 
@@ -27,3 +30,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_hg0jx")
 [node name="dialog" type="MeshInstance3D" parent="." unique_id=996378322]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37244242, 0.5881107)
 mesh = SubResource("TextMesh_hg0jx")
+surface_material_override/0 = SubResource("StandardMaterial3D_2h8lc")
